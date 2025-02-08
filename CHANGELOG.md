@@ -13,3 +13,7 @@
 ## 1.0.5
 
 - Fix format issues for pub dev
+
+## 1.0.6
+
+- Rename example & head class
