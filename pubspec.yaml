@@ -1,6 +1,7 @@
-name: smart_timer
+name: flutter_smart_timer
 description: Timer for best setup and use
-version: 1.0.0
+version: 1.0.4
+homepage: https://github.com/Anykeykin/smart_timer
 
 environment:
   sdk: ^3.1.5

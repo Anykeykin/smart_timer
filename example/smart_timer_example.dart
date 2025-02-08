@@ -1,4 +1,4 @@
-import 'package:smart_timer/smart_timer.dart';
+import 'package:flutter_smart_timer/smart_timer.dart';
 
 void main() {
   final timer = SmartTimer(
@@ -24,7 +24,7 @@ void main() {
   });
 
   Future.delayed(Duration(seconds: 20), () {
-    timer.stop(); 
+    timer.stop();
     print('Таймер остановлен');
   });
 }
