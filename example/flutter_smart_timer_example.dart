@@ -1,4 +1,4 @@
-import 'package:flutter_smart_timer/smart_timer.dart';
+import 'package:flutter_smart_timer/flutter_smart_timer.dart';
 
 void main() {
   final timer = SmartTimer(
