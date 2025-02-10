@@ -10,6 +10,9 @@ void main() {
     onComplete: (int completedTime) {
       print('completed time $completedTime');
     },
+    onIntervalTick: (int intervalTime) {
+      print('interval time $intervalTime');
+    },
   );
 
   timer.start();
@@ -20,9 +23,5 @@ void main() {
 
   Future.delayed(Duration(seconds: 10), () {
     timer.resume();
-  });
-
-  Future.delayed(Duration(seconds: 20), () {
-    timer.stop();
   });
 }
