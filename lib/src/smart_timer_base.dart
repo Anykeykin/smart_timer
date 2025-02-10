@@ -51,4 +51,6 @@ class SmartTimer {
   }
 
   int get currentTime => _currentTime;
+
+  bool get isActive => _timer?.isActive ?? false;
 }
