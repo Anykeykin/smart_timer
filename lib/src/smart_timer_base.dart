@@ -34,19 +34,13 @@ class SmartTimer {
 
   void start() {
     if (isActive) return;
-    _timer = Timer.periodic(Duration(seconds: customDuration ?? 1), (timer) {
-      _currentTime++;
-      _onTick?.call(_currentTime);
+    if (countDown) {
+      _currentTime = countDownStartedTime ?? 60;
+    } else {
+      _currentTime = 0;
+    }
 
-      if (_intervals.contains(_currentTime)) {
-        _onIntervalTick?.call(currentTime);
-      }
-
-      if (_currentTime >= _intervals.last) {
-        _onComplete?.call(_currentTime);
-        stop();
-      }
-    });
+    resume();
   }
 
   void pause() {
@@ -55,7 +49,25 @@ class SmartTimer {
 
   /// Resumed timer
   void resume() {
-    start();
+    _timer = Timer.periodic(Duration(seconds: customDuration ?? 1), (timer) {
+      if (countDown) {
+        _currentTime--;
+      } else {
+        _currentTime++;
+      }
+
+      _onTick?.call(_currentTime);
+
+      if (_intervals.contains(_currentTime)) {
+        _onIntervalTick?.call(currentTime);
+      }
+
+      if ((countDown && _currentTime <= 0) ||
+          (!countDown && _currentTime >= _intervals.last)) {
+        _onComplete?.call(_currentTime);
+        stop();
+      }
+    });
   }
 
   /// Stoped timer
