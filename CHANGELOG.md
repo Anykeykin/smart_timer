@@ -17,3 +17,7 @@
 ## 1.0.6
 
 - Rename example & head class
+
+## 1.0.7
+
+- Rmv prints on example & add int on complete
