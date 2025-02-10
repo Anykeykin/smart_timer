@@ -1,3 +1,8 @@
+## 1.0.9
+- Add custom duration
+- Add onIntervallTick
+- upd description & documentation
+
 ## 1.0.8
 
 - Add emtpry intervals check
