@@ -2,11 +2,13 @@ import 'dart:async';
 
 class SmartTimer {
   Timer? _timer;
+  /// custom duration for change timer tick periodic
   int? customDuration;
   int _currentTime = 0;
   final List<int> _intervals;
   final Function(int)? _onTick;
   final Function(int)? _onIntervalTick;
+  /// callback for call on timer complete
   final Function(int)? _onComplete;
 
   SmartTimer({
@@ -45,10 +47,12 @@ class SmartTimer {
     _timer?.cancel();
   }
 
+  /// Resumed timer
   void resume() {
     start();
   }
 
+  /// Stoped timer
   void stop() {
     _timer?.cancel();
     _currentTime = 0;
