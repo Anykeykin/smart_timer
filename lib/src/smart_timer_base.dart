@@ -6,16 +6,19 @@ class SmartTimer {
   int _currentTime = 0;
   final List<int> _intervals;
   final Function(int)? _onTick;
+  final Function(int)? _onIntervalTick;
   final Function(int)? _onComplete;
 
   SmartTimer({
     this.customDuration,
     required List<int> intervals,
     Function(int)? onTick,
+    Function(int)? onIntervalTick,
     Function(int)? onComplete,
   })  : _intervals = intervals,
         _onTick = onTick,
-        _onComplete = onComplete {
+        _onComplete = onComplete,
+        _onIntervalTick = onIntervalTick {
     if (_intervals.isEmpty) {
       throw ArgumentError('Intervals list cannot be empty');
     }
@@ -28,7 +31,7 @@ class SmartTimer {
       _onTick?.call(_currentTime);
 
       if (_intervals.contains(_currentTime)) {
-        print('$_currentTime second');
+        _onIntervalTick?.call(currentTime);
       }
 
       if (_currentTime >= _intervals.last) {
