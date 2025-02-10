@@ -20,7 +20,7 @@ class SmartTimer {
   }
 
   void start() {
-    if (_timer != null && _timer!.isActive) return;
+    if (isActive) return;
 
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       _currentTime++;
