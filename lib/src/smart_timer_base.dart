@@ -31,8 +31,8 @@ class SmartTimer {
       }
 
       if (_currentTime >= _intervals.last) {
-        stop();
         _onComplete?.call(_currentTime);
+        stop();
       }
     });
   }
