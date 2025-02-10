@@ -2,12 +2,14 @@ import 'dart:async';
 
 class SmartTimer {
   Timer? _timer;
+  int? customDuration;
   int _currentTime = 0;
   final List<int> _intervals;
   final Function(int)? _onTick;
   final Function(int)? _onComplete;
 
   SmartTimer({
+    this.customDuration,
     required List<int> intervals,
     Function(int)? onTick,
     Function(int)? onComplete,
@@ -21,8 +23,7 @@ class SmartTimer {
 
   void start() {
     if (isActive) return;
-
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(Duration(seconds: customDuration ?? 1), (timer) {
       _currentTime++;
       _onTick?.call(_currentTime);
 
