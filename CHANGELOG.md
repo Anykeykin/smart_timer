@@ -1,23 +1,33 @@
-## 1.0.0
+## 1.0.8
 
-- Initial version.
+- Add emtpry intervals check
+- Add isActive check for timer
+- Fix completed time
 
-## 1.0.4
+## 1.0.7
 
-- Fix home page
-
-## 1.0.4
-
-- Fix home page
-
-## 1.0.5
-
-- Fix format issues for pub dev
+- Rmv prints on example & add int on complete
 
 ## 1.0.6
 
 - Rename example & head class
 
-## 1.0.7
+## 1.0.5
 
-- Rmv prints on example & add int on complete
+- Fix format issues for pub dev
+
+## 1.0.4
+
+- Fix home page
+
+
+## 1.0.0
+
+- Initial version.
+
+
+
+
+
+
+
