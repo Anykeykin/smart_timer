@@ -13,7 +13,11 @@ class SmartTimer {
     Function(int)? onComplete,
   })  : _intervals = intervals,
         _onTick = onTick,
-        _onComplete = onComplete;
+        _onComplete = onComplete {
+    if (_intervals.isEmpty) {
+      throw ArgumentError('Intervals list cannot be empty');
+    }
+  }
 
   void start() {
     if (_timer != null && _timer!.isActive) return;
