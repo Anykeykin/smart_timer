@@ -3,11 +3,11 @@ import 'package:flutter_smart_timer/flutter_smart_timer.dart';
 void main() {
   final timer = SmartTimer(
     intervals: [5, 10, 15],
-    onTick: (time) {
-      print('Тик: $time секунд');
+    onTick: (int time) {
+      print('tick time $time');
     },
-    onComplete: () {
-      print('Таймер завершён!');
+    onComplete: (int completedTime) {
+      print('completed time $completedTime');
     },
   );
 
@@ -15,16 +15,13 @@ void main() {
 
   Future.delayed(Duration(seconds: 7), () {
     timer.pause();
-    print('Таймер на паузе');
   });
 
   Future.delayed(Duration(seconds: 10), () {
     timer.resume();
-    print('Таймер возобновлён');
   });
 
   Future.delayed(Duration(seconds: 20), () {
     timer.stop();
-    print('Таймер остановлен');
   });
 }
