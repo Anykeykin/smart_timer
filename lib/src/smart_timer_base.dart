@@ -5,7 +5,9 @@ class SmartTimer {
 
   /// custom duration for change timer tick periodic
   int? customDuration;
+  int? countDownStartedTime;
   int _currentTime = 0;
+  final bool countDown;
   final List<int> _intervals;
   final Function(int)? _onTick;
   final Function(int)? _onIntervalTick;
@@ -15,6 +17,8 @@ class SmartTimer {
 
   SmartTimer({
     this.customDuration,
+    this.countDownStartedTime,
+    required this.countDown,
     required List<int> intervals,
     Function(int)? onTick,
     Function(int)? onIntervalTick,
