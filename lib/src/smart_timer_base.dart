@@ -5,12 +5,12 @@ class SmartTimer {
   int _currentTime = 0;
   final List<int> _intervals;
   final Function(int)? _onTick;
-  final Function()? _onComplete;
+  final Function(int)? _onComplete;
 
   SmartTimer({
     required List<int> intervals,
     Function(int)? onTick,
-    Function()? onComplete,
+    Function(int)? onComplete,
   })  : _intervals = intervals,
         _onTick = onTick,
         _onComplete = onComplete;
@@ -22,15 +22,13 @@ class SmartTimer {
       _currentTime++;
       _onTick?.call(_currentTime);
 
-      // Проверяем, достигли ли мы одного из интервалов
       if (_intervals.contains(_currentTime)) {
         print('$_currentTime second');
       }
 
-      // Если время вышло
       if (_currentTime >= _intervals.last) {
         stop();
-        _onComplete?.call();
+        _onComplete?.call(_currentTime);
       }
     });
   }
