@@ -1,6 +1,6 @@
 name: flutter_smart_timer
 description: A smart timer designed for easy use, featuring interval functions and customizable duration settings.
-version: 1.0.9
+version: 1.1.0
 homepage: https://github.com/Anykeykin/smart_timer
 
 environment:

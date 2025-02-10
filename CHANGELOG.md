@@ -1,3 +1,7 @@
+## 1.1.0
+- Add countdown mode
+- Add countdown startted time
+
 ## 1.0.9
 - Add custom duration
 - Add onIntervallTick
