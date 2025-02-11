@@ -1,3 +1,6 @@
+## 1.1.1
+- Change int fields to duration (customDuration, countDownStartedTime)
+
 ## 1.1.0
 - Add countdown mode
 - Add countdown startted time
