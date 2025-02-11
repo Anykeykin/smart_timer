@@ -1,3 +1,6 @@
+## 1.1.2
+- Add endtime field for stop timer
+
 ## 1.1.1
 - Change int fields to duration (customDuration, countDownStartedTime)
 
