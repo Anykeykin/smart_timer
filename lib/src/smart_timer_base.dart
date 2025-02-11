@@ -1,6 +1,12 @@
 import 'dart:async';
 
 class SmartTimer {
+  final StreamController<Duration> _tickController =
+      StreamController.broadcast();
+  final StreamController<Duration> _intervalController =
+      StreamController.broadcast();
+  final StreamController<Duration> _completeController =
+      StreamController.broadcast();
   Timer? _timer;
 
   /// custom duration for change timer tick periodic
@@ -80,4 +86,10 @@ class SmartTimer {
   Duration get currentTime => _currentTime;
 
   bool get isActive => _timer?.isActive ?? false;
+
+  Stream<Duration> get onTick => _tickController.stream;
+  
+  Stream<Duration> get onInterval => _intervalController.stream;
+
+  Stream<Duration> get onComplete => _completeController.stream;
 }
