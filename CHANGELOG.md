@@ -1,3 +1,6 @@
+## 1.1.3
+- Add stream controllers for timer
+
 ## 1.1.2
 - Add endtime field for stop timer
 
