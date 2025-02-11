@@ -4,9 +4,9 @@ class SmartTimer {
   Timer? _timer;
 
   /// custom duration for change timer tick periodic
-  int? customDuration;
-  int? countDownStartedTime;
-  int _currentTime = 0;
+  Duration? customDuration;
+  Duration? countDownStartedTime;
+  Duration _currentTime = Duration.zero;
   final bool countDown;
   final List<int> _intervals;
   final Function(int)? _onTick;
@@ -35,9 +35,9 @@ class SmartTimer {
   void start() {
     if (isActive) return;
     if (countDown) {
-      _currentTime = countDownStartedTime ?? 60;
+      _currentTime = countDownStartedTime ?? Duration(seconds: 60);
     } else {
-      _currentTime = 0;
+      _currentTime = Duration.zero;
     }
 
     resume();
@@ -49,22 +49,22 @@ class SmartTimer {
 
   /// Resumed timer
   void resume() {
-    _timer = Timer.periodic(Duration(seconds: customDuration ?? 1), (timer) {
+    _timer = Timer.periodic(customDuration?? Duration(seconds: 1), (timer) {
       if (countDown) {
-        _currentTime--;
+        _currentTime -= Duration(seconds: 1);
       } else {
-        _currentTime++;
+        _currentTime += Duration(seconds: 1);
       }
 
-      _onTick?.call(_currentTime);
+      _onTick?.call(_currentTime.inSeconds);
 
-      if (_intervals.contains(_currentTime)) {
-        _onIntervalTick?.call(currentTime);
+      if (_intervals.contains(_currentTime.inSeconds)) {
+        _onIntervalTick?.call(_currentTime.inSeconds);
       }
 
-      if ((countDown && _currentTime <= 0) ||
-          (!countDown && _currentTime >= _intervals.last)) {
-        _onComplete?.call(_currentTime);
+      if ((countDown && _currentTime <= Duration.zero) ||
+          (!countDown && _currentTime.inSeconds >= _intervals.last)) {
+        _onComplete?.call(_currentTime.inSeconds);
         stop();
       }
     });
@@ -73,10 +73,10 @@ class SmartTimer {
   /// Stoped timer
   void stop() {
     _timer?.cancel();
-    _currentTime = 0;
+    _currentTime = Duration.zero;
   }
 
-  int get currentTime => _currentTime;
+  Duration get currentTime => _currentTime;
 
   bool get isActive => _timer?.isActive ?? false;
 }
