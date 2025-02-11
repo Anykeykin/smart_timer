@@ -5,6 +5,7 @@ void main() {
     customDuration: Duration(milliseconds: 100),
     countDownStartedTime: Duration(seconds: 120),
     countDown: true,
+    endTime: 10,
     intervals: [5, 10, 15],
     onTick: (int time) {
       print('tick time $time');
