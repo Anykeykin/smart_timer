@@ -20,6 +20,10 @@ void main() {
 
   timer.start();
 
+  timer.onTick.listen((Duration duration) {
+    print('stream listen ${duration.inSeconds}');
+  });
+
   Future.delayed(Duration(seconds: 7), () {
     timer.pause();
   });
