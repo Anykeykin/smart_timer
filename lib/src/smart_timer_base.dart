@@ -49,7 +49,7 @@ class SmartTimer {
 
   /// Resumed timer
   void resume() {
-    _timer = Timer.periodic(customDuration?? Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(customDuration ?? Duration(seconds: 1), (timer) {
       if (countDown) {
         _currentTime -= Duration(seconds: 1);
       } else {
