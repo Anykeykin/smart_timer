@@ -64,13 +64,16 @@ class SmartTimer {
         _currentTime += Duration(seconds: 1);
       }
 
+      _tickController.add(_currentTime);
       _onTick?.call(_currentTime.inSeconds);
 
       if (_intervals.contains(_currentTime.inSeconds)) {
+        _intervalController.add(_currentTime);
         _onIntervalTick?.call(_currentTime.inSeconds);
       }
 
       if (endTime == _currentTime.inSeconds) {
+        _completeController.add(_currentTime);
         _onComplete?.call(_currentTime.inSeconds);
         stop();
       }
@@ -88,7 +91,7 @@ class SmartTimer {
   bool get isActive => _timer?.isActive ?? false;
 
   Stream<Duration> get onTick => _tickController.stream;
-  
+
   Stream<Duration> get onInterval => _intervalController.stream;
 
   Stream<Duration> get onComplete => _completeController.stream;
