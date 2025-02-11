@@ -2,8 +2,8 @@ import 'package:flutter_smart_timer/flutter_smart_timer.dart';
 
 void main() {
   final timer = SmartTimer(
-    customDuration: 5,
-    countDownStartedTime: 120,
+    customDuration: Duration(milliseconds: 100),
+    countDownStartedTime: Duration(seconds: 120),
     countDown: true,
     intervals: [5, 10, 15],
     onTick: (int time) {
