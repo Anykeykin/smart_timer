@@ -7,6 +7,7 @@ class SmartTimer {
   Duration? customDuration;
   Duration? countDownStartedTime;
   Duration _currentTime = Duration.zero;
+  final int endTime;
   final bool countDown;
   final List<int> _intervals;
   final Function(int)? _onTick;
@@ -18,6 +19,7 @@ class SmartTimer {
   SmartTimer({
     this.customDuration,
     this.countDownStartedTime,
+    required this.endTime,
     required this.countDown,
     required List<int> intervals,
     Function(int)? onTick,
@@ -62,8 +64,7 @@ class SmartTimer {
         _onIntervalTick?.call(_currentTime.inSeconds);
       }
 
-      if ((countDown && _currentTime <= Duration.zero) ||
-          (!countDown && _currentTime.inSeconds >= _intervals.last)) {
+      if (endTime == _currentTime.inSeconds) {
         _onComplete?.call(_currentTime.inSeconds);
         stop();
       }
