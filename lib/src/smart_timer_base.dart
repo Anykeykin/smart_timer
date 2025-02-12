@@ -1,12 +1,14 @@
 import 'dart:async';
 
 class SmartTimer {
+  /// stream controllers for indicate changes with listen
   final StreamController<Duration> _tickController =
       StreamController.broadcast();
   final StreamController<Duration> _intervalController =
       StreamController.broadcast();
   final StreamController<Duration> _completeController =
       StreamController.broadcast();
+
   Timer? _timer;
 
   /// custom duration for change timer tick periodic
