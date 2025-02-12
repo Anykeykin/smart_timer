@@ -84,6 +84,13 @@ class SmartTimer {
     _currentTime = Duration.zero;
   }
 
+  /// dispose streamControllers
+  void dispose() {
+    _tickController.close();
+    _intervalController.close();
+    _completeController.close();
+  }
+
   Duration get currentTime => _currentTime;
 
   bool get isActive => _timer?.isActive ?? false;
