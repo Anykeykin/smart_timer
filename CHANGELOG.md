@@ -1,3 +1,7 @@
+## 1.1.4
+- Add unit tests
+- remove ArgumentError on empty interval list
+
 ## 1.1.3
 - Add stream controllers for timer
 
