@@ -1,3 +1,6 @@
+## 1.1.5
+- Add dispose method for stream controllers
+
 ## 1.1.4
 - Add unit tests
 - remove ArgumentError on empty interval list
