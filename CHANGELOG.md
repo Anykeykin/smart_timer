@@ -1,3 +1,6 @@
+## 1.1.6
+- upd Readme
+
 ## 1.1.5
 - Add dispose method for stream controllers
 
